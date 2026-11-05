@@ -4,13 +4,16 @@ import com.rpg.entities.Enemigo;
 import com.rpg.entities.EstadoEfecto;
 import com.rpg.entities.enums.TipoEfecto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 /** Catalogo de monstruos (Map nombre -> plantilla) y contador de derrotas por monstruo. */
-public class Bestiario {
+public class Bestiario implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private final Map<String, Enemigo> catalogo = new LinkedHashMap<>();
     private final Map<String, Integer> derrotados = new LinkedHashMap<>();
@@ -28,12 +31,12 @@ public class Bestiario {
         catalogo.put(enemigo.getNombre(), enemigo);
     }
 
-    public List<String> nombres() {
+    public synchronized List<String> nombres() {
         return new ArrayList<>(catalogo.keySet());
     }
 
     /** Busca ignorando mayusculas (equalsIgnoreCase, nunca ==). @return copia nueva o null si no existe */
-    public Enemigo crearEnemigo(String nombre) {
+    public synchronized Enemigo crearEnemigo(String nombre) {
         for (Map.Entry<String, Enemigo> entrada : catalogo.entrySet()) {
             if (entrada.getKey().equalsIgnoreCase(nombre)) {
                 return entrada.getValue().copia();
@@ -42,15 +45,15 @@ public class Bestiario {
         return null;
     }
 
-    public void registrarEnemigoDerrotado(String nombre) {
+    public synchronized void registrarEnemigoDerrotado(String nombre) {
         derrotados.put(nombre, derrotados.getOrDefault(nombre, 0) + 1);
     }
 
-    public int vecesDerrotado(String nombre) {
+    public synchronized int vecesDerrotado(String nombre) {
         return derrotados.getOrDefault(nombre, 0);
     }
 
-    public String describir() {
+    public synchronized String describir() {
         StringBuilder texto = new StringBuilder();
         int numero = 1;
         for (Map.Entry<String, Enemigo> entrada : catalogo.entrySet()) {
@@ -62,10 +65,21 @@ public class Bestiario {
         return texto.toString();
     }
 
-    public String resumenDerrotados() {
+    public synchronized String resumenDerrotados() {
         if (derrotados.isEmpty()) {
             return "ninguno";
         }
         return derrotados.toString();
+    }
+
+    public synchronized Map<String, Integer> getDerrotados() {
+        return new LinkedHashMap<>(derrotados);
+    }
+
+    public synchronized void setDerrotados(Map<String, Integer> nuevosDerrotados) {
+        if (nuevosDerrotados != null) {
+            derrotados.clear();
+            derrotados.putAll(nuevosDerrotados);
+        }
     }
 }
