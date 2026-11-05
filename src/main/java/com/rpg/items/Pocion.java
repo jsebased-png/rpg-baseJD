@@ -2,9 +2,15 @@ package com.rpg.items;
 
 import com.rpg.entities.EstadoEfecto;
 import com.rpg.entities.enums.RaridadItem;
+import java.io.Serializable;
 
-// TALLER ARCHIVOS: candidata a Serializable (guarda un EstadoEfecto, que tambien debe serlo).
-public class Pocion {
+/**
+ * Item consumible que restaura vida y puede aplicar un efecto o purificar.
+ * Implementa Serializable para persistirse dentro del Inventario.
+ */
+public class Pocion implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private final String nombre;
     private final int curacion;
@@ -42,5 +48,13 @@ public class Pocion {
 
     public boolean isPurifica() {
         return purifica;
+    }
+
+    public int getCuracion() {
+        return curacion;
+    }
+
+    public RaridadItem getRaridad() {
+        return raridad;
     }
 }
