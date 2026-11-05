@@ -16,7 +16,11 @@ public class Consola {
 
     public String leerLinea(String mensaje) {
         System.out.print(mensaje);
-        return scanner.nextLine().trim();
+        String linea = scanner.nextLine().trim();
+        if (linea.startsWith("\uFEFF")) {
+            linea = linea.substring(1).trim();
+        }
+        return linea;
     }
 
     public int leerEntero(String mensaje, int minimo, int maximo) {
