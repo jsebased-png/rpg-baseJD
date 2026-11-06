@@ -224,23 +224,23 @@ flowchart LR
 
 **Inicio de sesión**
 
-![Demostración Login](https://drive.google.com/file/d/15H2rBirnv0nSnsKi7nJUDkoE4oBJIAFt/view?usp=sharing)
+[Demostración Login](https://drive.google.com/file/d/15H2rBirnv0nSnsKi7nJUDkoE4oBJIAFt/view?usp=sharing)
 
 **Demostración de inyección SQL (versión insegura vs. segura)**
 
-![Demostración Inyección SQL](https://drive.google.com/file/d/1BZhP4AfqZyfrxRz0Fp73pIZ2-XefjPd_/view?usp=sharing)
+[Demostración Inyección SQL](https://drive.google.com/file/d/1BZhP4AfqZyfrxRz0Fp73pIZ2-XefjPd_/view?usp=sharing)
 
 **Flujo de combate (victoria registrada en la base de datos)**
 
-![Demostración Combate](https://drive.google.com/file/d/1bMj53PrzJa9Af1LMGS8kyLGsG_hlMMzS/view?usp=sharing)
+[Demostración Combate](https://drive.google.com/file/d/1bMj53PrzJa9Af1LMGS8kyLGsG_hlMMzS/view?usp=sharing)
 
 **Consulta de ranking general e historial**
 
-![Demostración Ranking](https://drive.google.com/file/d/12OjUq_jcwaCKxlAB52Am2mA2MfLlVdsm/view?usp=sharing)
+[Demostración Ranking](https://drive.google.com/file/d/12OjUq_jcwaCKxlAB52Am2mA2MfLlVdsm/view?usp=sharing)
 
 **Panel de administración (gestión de monstruos y usuarios)**
 
-![Demostración Panel Admin](https://drive.google.com/file/d/1LOcNnj9muf7v1Ev1-_EnkHMA0rxHxcFg/view?usp=sharing)
+[Demostración Panel Admin](https://drive.google.com/file/d/1LOcNnj9muf7v1Ev1-_EnkHMA0rxHxcFg/view?usp=sharing)
 
 ---
 
